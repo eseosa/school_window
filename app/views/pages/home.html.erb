@@ -1,6 +1,6 @@
 <% provide(:title, 'Home') %>
 <div id="page">
-    <h1>University Window - Obtaining Knowledge Is Power</h1>
+    <h2>University Window - Obtaining Knowledge Is Power</h2>
     <p>
       <div id="content">Are you looking for the best university close to you to attend? Then begin the road to success...
       search and add the <a href="/universities">university</a> for the future.
@@ -9,11 +9,12 @@
       <div id="sidebar"><h3>Quick Links</h3>
             <ul class="links">
               <li><a href="/universities">University</a></li>
-              <li><%= link_to 'Contact', pages_contact_path %></li>
-              <li><%= link_to 'About us', pages_about_path %></li>
-              <li><a href="/sign_up">SignUp</a></li>
-              <li><a href="/log_in">Login</a></li>
+              <li><%= link_to 'Contact', contact_path %></li>
+              <li><%= link_to 'About us', about_path %></li>
+              <li><%= link_to 'Sign up', signup_path %></li>
+              <li><a href="/signin">Login</a></li>
             </ul>
       </div>
     </p>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
 </div>

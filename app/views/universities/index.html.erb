@@ -1,0 +1,32 @@
+<h1>Listing universities</h1>
+<h3>Enter keyword</h3>
+<form action ="universities/search" method="post">
+<input name = "key" type="input" />
+<input value="Send" type="submit"/>
+</form> 
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Details</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @universities.each do |university| %>
+  <tr>
+    <td><%= university.name %></td>
+    <td><%= university.location %></td>
+    <td><%= university.details %></td>
+    <td><%= link_to 'Show', university %></td>
+    <td><%= link_to 'Edit', edit_university_path(university) %></td>
+    <td><%= link_to 'Destroy', university, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New University', new_university_path %>

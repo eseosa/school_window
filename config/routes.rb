@@ -1,11 +1,18 @@
 SchoolWindow::Application.routes.draw do
-  get "pages/home"
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
-  get "pages/help"
+  resources :universities
+
+  root to: "pages#home"
   
-  get "pages/about"
+  match '/signup',  to: 'users#new'
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
   
-  get "pages/contact"
+  match "/help", to: "pages#help"
+  match "/about", to: "pages#about"
+  match "/contact", to: "pages#contact"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
