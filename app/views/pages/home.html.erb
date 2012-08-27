@@ -1,5 +1,21 @@
 <% provide(:title, 'Home') %>
-<div id="page">
+<% if signed_in? %>
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+    <div class="span8">
+      <h3>Micropost Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
+  <div id="page">
     <h2>University Window - Obtaining Knowledge Is Power</h2>
     <p>
       <div id="content">Are you looking for the best university close to you to attend? Then begin the road to success...
@@ -17,4 +33,5 @@
       </div>
     </p>
     <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-</div>
+  </div>
+<% end %>
